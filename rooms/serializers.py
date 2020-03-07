@@ -16,7 +16,7 @@ class RoomSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Room
-        fields = ("pk", "name", "price", "instant_book", "user",)
+        fields = ("pk", "name", "price", "user",)
 
 
 class BigRoomSerializer(serializers.ModelSerializer):
