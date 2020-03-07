@@ -3,7 +3,7 @@ from rest_framework.views import APIView # CBV
 from rest_framework.decorators import api_view # FBV
 from rest_framework.response import Response
 from .models import Room
-from .serializers import RoomSerializer, BigRoomSerializer
+from .serializers import RoomSerializer
 
 # ListAPIView
 class ListRoomsView(ListAPIView):
@@ -13,7 +13,7 @@ class ListRoomsView(ListAPIView):
 
 class SeeRoomView(RetrieveAPIView):
     queryset = Room.objects.all()
-    serializer_class = BigRoomSerializer
+    serializer_class = RoomSerializer
 
 
 # Class Based View
