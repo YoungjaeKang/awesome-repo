@@ -3,6 +3,7 @@ from rest_framework.views import APIView # CBV
 from rest_framework.decorators import api_view # FBV
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework import status
 from .models import Room
 from .serializers import ReadRoomSerializer, WriteRoomSerializer
 
@@ -21,6 +22,7 @@ def rooms_view(request):
     elif request.method == "POST":
         serializer = WriteRoomSerializer(data=request.data)
         # print(serializer.is_valid())
+        print(dir(serializer))
         if serializer.is_valid():
             return Response(status=status.HTTP_200_OK)
         else:
