@@ -21,9 +21,12 @@ def rooms_view(request):
 
     elif request.method == "POST":
         serializer = WriteRoomSerializer(data=request.data)
+        # print(dir(serializer))
         # print(serializer.is_valid())
-        print(dir(serializer))
+        # print(dir(serializer))
         if serializer.is_valid():
+            # serializer.create() 이런 식으로 create or update method를 직접 call 하면 안된다.
+            serializer.save(user=request.user)
             return Response(status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
